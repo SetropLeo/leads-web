@@ -1,12 +1,10 @@
 import React from "react";
 
-import { AssessmentForm, Banner } from "@/components";
-
-import "./styles.css";
+import { AssessmentForm, Banner, ConfirmationModal } from "@/components";
 
 const Page = () => {
   return (
-    <div>
+    <div className="main-container">
       <Banner
         bannerTitle={`Get An Assessment\nOf Your Immigration Case`}
         supportImagePath="/images/banner-detail.png"
@@ -14,6 +12,12 @@ const Page = () => {
         supportImageWidth={224}
       />
       <AssessmentForm />
+      <ConfirmationModal
+        title="Thank you"
+        icon="info"
+        text={`Your information was submitted to our team of immigration\n attorneys. Expect an email from hello@tryalma.ai.`}
+        btnText="Go back to Homepage"
+      />
     </div>
   );
 };
