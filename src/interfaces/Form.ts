@@ -3,7 +3,7 @@ export interface IAssessmentForm {
   lastName: string;
   email: string;
   country: string;
-  visa: string;
+  visa: string[];
   profDataUrl: string;
   detailments: string;
 }

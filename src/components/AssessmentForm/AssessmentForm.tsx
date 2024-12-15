@@ -1,9 +1,10 @@
 "use client";
 
-import { Button, CountrySelect, RadioSelect, TextArea } from "@/components";
+import { CountrySelect } from "@/components";
 import React, { FormEvent, useState } from "react";
 import Image from "next/image";
-import { Input } from "antd";
+import TextArea from "antd/es/input/TextArea";
+import { Button, Checkbox, Input } from "antd";
 import z from "zod";
 
 import LoveIcon from "../../../public/icons/love-icon.png";
@@ -111,11 +112,12 @@ const AssessmentForm = () => {
         <h3 className="step-title">{stepContent.second.title}</h3>
         <div className="step-fields-container">
           <div className="field-container">
-            <RadioSelect
+            <Checkbox.Group
+              className="checkbox-field"
               options={radioSelectOptions}
-              value={formValues.visa}
-              onChange={(value) => onChangeField("visa", value)}
-              radioStyle="square"
+              onChange={(selectedList) => {
+                setFormValues((prev) => ({ ...prev, visa: selectedList }));
+              }}
             />
             {errors.visa && <p className="form_error">{errors.visa}</p>}
           </div>
@@ -131,9 +133,11 @@ const AssessmentForm = () => {
               id="detailments"
               placeholder={textAreaText}
               className="input-field textarea-field"
-              height="176px"
+              style={{ height: "176px", resize: "vertical" }}
               value={formValues.detailments}
-              onChange={(value) => onChangeField("detailments", value)}
+              onChange={({ target }) =>
+                onChangeField("detailments", target.value)
+              }
             />
             {errors.detailments && (
               <p className="form_error">{errors.detailments}</p>
@@ -142,7 +146,12 @@ const AssessmentForm = () => {
         </div>
       </div>
 
-      <Button type="submit" className="submit-button">
+      <Button
+        color="default"
+        variant="solid"
+        htmlType="submit"
+        className="submit-button"
+      >
         Submit
       </Button>
     </form>
@@ -152,10 +161,10 @@ const AssessmentForm = () => {
 export default AssessmentForm;
 
 const radioSelectOptions = [
-  { name: "0-1", value: "0-1" },
-  { name: "EB-1A", value: "EB-1A" },
-  { name: "EB-2 NIW", value: "EB-2-NIW" },
-  { name: "I don't know", value: "unknown" },
+  { label: "0-1", value: "0-1", style: { fontWeight: 500 } },
+  { label: "EB-1A", value: "EB-1A", style: { fontWeight: 500 } },
+  { label: "EB-2 NIW", value: "EB-2-NIW", style: { fontWeight: 500 } },
+  { label: "I don't know", value: "unknown", style: { fontWeight: 500 } },
 ];
 
 const stepContent = {
@@ -178,7 +187,7 @@ const initialFormData: IAssessmentForm = {
   lastName: "",
   email: "",
   country: "",
-  visa: "",
+  visa: [],
   profDataUrl: "",
   detailments: "",
 };
