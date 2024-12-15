@@ -1,0 +1,6 @@
+.leads-table {
+  border: 1px solid #cdcdcd;
+  border-radius: 8px;
+  width: 100%;
+  height: calc(100% - 120px);
+}
