@@ -8,7 +8,7 @@ const Page = () => {
   return (
     <div>
       <Banner
-        bannerTitle="Alma Assessment Form"
+        bannerTitle={`Get An Assessment\nOf Your Immigration Case`}
         supportImagePath="/images/banner-detail.png"
         supportImageHeight={345}
         supportImageWidth={224}
