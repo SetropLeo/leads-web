@@ -73,7 +73,8 @@ Initially, I started by planning which components would be essential for the pro
 <br />
 
 ### System Design
-![NextJs (1)](https://github.com/user-attachments/assets/3709bffa-c95e-45ca-8135-d2ebbe98c4cd)
+
+![NextJs](https://github.com/user-attachments/assets/9fa620d2-6611-42d4-a4f0-ac279363f072)
 
 
    
