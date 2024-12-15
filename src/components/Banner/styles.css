@@ -1,0 +1,42 @@
+.banner-container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 344px;
+    overflow: hidden;
+    background-color: #d9dea5;
+}
+
+.banner-image-container {
+    position: relative;
+    height: 100%;
+    width: auto;
+    flex-shrink: 0;
+}
+
+.banner-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 98px;
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+}
+
+.banner-image {
+    object-fit: contain;
+    height: 100%;
+    width: auto;
+}
+
+.banner-title {
+    margin-top: 36px;
+    white-space: pre-wrap;
+    font-weight: 800;
+    font-size: 36px;
+    color: #000000;
+}
