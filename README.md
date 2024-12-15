@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Alma Technical Exercise
 
-## Getting Started
+### Technologies used
+- NextJS v14
+- React v18
+- Zustand (Data Storing)
+- zod (Data Validation)
+- Ant Design (Design System)
 
-First, run the development server:
+<br />
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### How to run the application: 
+1. Clone the project using your terminal
+   
+   <pre>
+     git clone https://github.com/SetropLeo/alma-technical-exercise
+   </pre>
+   
+2. Install node v22/LTS (https://nodejs.org/pt)
+3. Run the command to install the packages using your terminal
+   
+   <pre>
+     npm install
+   </pre>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Run the project using your terminal
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   <pre>
+     npm run dev
+   </pre>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+<br />
 
-## Learn More
+### Pages available
+1. The page used to capture leads can be found in the root page
 
-To learn more about Next.js, take a look at the following resources:
+   <pre>localhost:3000/</pre>
+   
+2. The page used to manage the leads collected can be found in the /dashboard page
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   <pre>localhost:3000/dashboard</pre>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- When you get to this page, you'll se that there's a Login Form. If you use following values, your access will be granted
+- Any other Login or password values are goint to be denied.
+  
+  <pre>Login: testuser   |   Password: password123</pre>
 
-## Deploy on Vercel
+<br/>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Detailments
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Initially, I started by planning which components would be essential for the project's progress:
+
+- AssessmentForm
+- Banner
+- ConfirmationModal
+- CountrySelect
+- FileUpload
+- LeadsTable
+- Sidebar
+- FormStep
+- The plan was to create components that would carry exclusive responsibilities for: presenting data, manipulating data, formatting elements, and generating specific actions.
+<br />
+
+1. I implemented `ZustandStores` for `data-storage-and-sharing` without prop drilling.
+   
+2. I implemented `interfaces` to assist me in feature development by moving data from one place to another.
+   
+3. I implemented `Zod` for complete `validation` of input fields on the lead capture screen, as well as to assist with user feedback in case of incorrect entries.
+   
+4. I created `utility functions` that would be used throughout the project, such as the notification utility.
+   
+<br />
+
+Regarding APIs, all data was mocked and did not interact with any server or database.
+
+I had in mind the idea of implementing `Sanitize`, considering it is a `simple and quick database` to work with, in addition to offering `validations and easy access to the necessary information` that would be used.
+
+I also planned to implement `unit tests` individually for each component,` integration tests` to validate the behavior of components regarding API responses, and `E2E tests` to test the system as a whole based on "human interactions" that would be automated to closely mimic user actions.
+
+Finally, I had planned to implement `streaming and real-time data` using `Next v15` so that, as soon as a lead filled out the form data, the table data would update in real-time if someone had the tab open, eliminating the need to refresh the page to see the changes.
+
+<br />
+Notes: 
+- Regarding this last point, it was the one that frustrated me the most. Next v15, combined with React v19, results in an extremely powerful force that enables new ways of interacting with the web. However, numerous libraries are still not ready to work with these technologies, including the Ant Design library. I spent countless precious hours trying to solve numerous issues with reactivity, visuals, and screen hydration.
+
+- Although it is a small project with simple features, the speed required to complete it was high and demanded a lot of attention to detail. I did not finish the test, leaving some visual details on the dashboard and the feature to change the lead state incomplete.
+
+- These components were created and implemented on the screens. However, due to the short deadline, it was not possible to implement all the visual details needed to make the screens complete.
+
+Although it is a small project with simple features, the speed required to complete it was high and demanded a lot of attention to detail. I did not finish the test, leaving some visual details on the dashboard and the feature to change the lead state incomplete.
