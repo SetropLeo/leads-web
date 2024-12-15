@@ -1,6 +1,8 @@
 import React, { ReactNode } from "react";
 import Image from "next/image";
 
+import { icons } from "@/constants";
+
 import "./styles.css";
 
 const FormStep = ({
@@ -35,12 +37,6 @@ const FormStep = ({
 };
 
 export default FormStep;
-
-const icons = {
-  love: "/icons/love-icon.png",
-  info: "/icons/info-icon.png",
-  dice: "/icons/dice-icon.png",
-};
 
 interface FormStepProps {
   icon: "love" | "info" | "dice" | null;
