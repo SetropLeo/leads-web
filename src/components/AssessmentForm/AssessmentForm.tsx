@@ -43,138 +43,132 @@ const AssessmentForm = () => {
   };
 
   return (
-    <>
-      <form
-        className="steps-container"
-        onSubmit={handleFormSubmit}
-        name="assessment-form"
+    <form
+      className="steps-container"
+      onSubmit={handleFormSubmit}
+      name="assessment-form"
+    >
+      <FormStep
+        icon="info"
+        title={stepContent.first.title}
+        text={stepContent.first.text}
       >
-        <FormStep
-          icon="info"
-          title={stepContent.first.title}
-          text={stepContent.first.text}
-        >
-          <div className="field-container">
-            <Input
-              id="firstName"
-              className="input-field"
-              placeholder="First Name"
-              value={formValues.firstName}
-              onChange={({ target }) =>
-                onChangeField("firstName", target.value)
-              }
-            />
-            {errors.firstName && (
-              <p className="form_error">{errors.firstName}</p>
-            )}
-          </div>
-          <div className="field-container">
-            <Input
-              id="lastName"
-              className="input-field"
-              placeholder="Last Name"
-              value={formValues.lastName}
-              onChange={({ target }) => onChangeField("lastName", target.value)}
-            />
-            {errors.lastName && <p className="form_error">{errors.lastName}</p>}
-          </div>
-          <div className="field-container">
-            <Input
-              id="email"
-              className="input-field"
-              placeholder="Email"
-              value={formValues.email}
-              onChange={({ target }) => onChangeField("email", target.value)}
-            />
-            {errors.email && <p className="form_error">{errors.email}</p>}
-          </div>
-          <div className="field-container">
-            <CountrySelect
-              id="country"
-              className="input-field"
-              value={formValues.country}
-              onChange={(value) => onChangeField("country", value)}
-            />
-            {errors.country && <p className="form_error">{errors.country}</p>}
-          </div>
-          <div className="field-container">
-            <Input
-              className="input-field"
-              placeholder="Linkedin / Personal Website URL"
-              value={formValues.profDataUrl}
-              onChange={({ target }) =>
-                onChangeField("profDataUrl", target.value)
-              }
-            />
-            {errors.profDataUrl && (
-              <p className="form_error">{errors.profDataUrl}</p>
-            )}
-          </div>
-        </FormStep>
+        <div className="field-container">
+          <Input
+            id="firstName"
+            className="input-field"
+            placeholder="First Name"
+            value={formValues.firstName}
+            onChange={({ target }) => onChangeField("firstName", target.value)}
+          />
+          {errors.firstName && <p className="form_error">{errors.firstName}</p>}
+        </div>
+        <div className="field-container">
+          <Input
+            id="lastName"
+            className="input-field"
+            placeholder="Last Name"
+            value={formValues.lastName}
+            onChange={({ target }) => onChangeField("lastName", target.value)}
+          />
+          {errors.lastName && <p className="form_error">{errors.lastName}</p>}
+        </div>
+        <div className="field-container">
+          <Input
+            id="email"
+            className="input-field"
+            placeholder="Email"
+            value={formValues.email}
+            onChange={({ target }) => onChangeField("email", target.value)}
+          />
+          {errors.email && <p className="form_error">{errors.email}</p>}
+        </div>
+        <div className="field-container">
+          <CountrySelect
+            id="country"
+            className="input-field"
+            value={formValues.country}
+            onChange={(value) => onChangeField("country", value)}
+          />
+          {errors.country && <p className="form_error">{errors.country}</p>}
+        </div>
+        <div className="field-container">
+          <Input
+            className="input-field"
+            placeholder="Linkedin / Personal Website URL"
+            value={formValues.profDataUrl}
+            onChange={({ target }) =>
+              onChangeField("profDataUrl", target.value)
+            }
+          />
+          {errors.profDataUrl && (
+            <p className="form_error">{errors.profDataUrl}</p>
+          )}
+        </div>
+      </FormStep>
 
-        <FormStep icon="dice" title={stepContent.second.title}>
-          <div className="field-container">
-            <Checkbox.Group
-              className="checkbox-group"
-              options={radioSelectOptions}
-              value={formValues.visa}
-              onChange={(selectedList) => {
-                setFormValues((prev) => ({ ...prev, visa: selectedList }));
-              }}
-            />
-            {errors.visa && <p className="form_error">{errors.visa}</p>}
-          </div>
-        </FormStep>
+      <FormStep icon="dice" title={stepContent.second.title}>
+        <div className="field-container">
+          <Checkbox.Group
+            className="checkbox-group"
+            options={radioSelectOptions}
+            value={formValues.visa}
+            onChange={(selectedList) => {
+              setFormValues((prev) => ({ ...prev, visa: selectedList }));
+            }}
+          />
+          {errors.visa && <p className="form_error">{errors.visa}</p>}
+        </div>
+      </FormStep>
 
-        <FormStep
-          icon="info"
-          title={stepContent.fourth.title}
-          text={stepContent.fourth.text}
-          stepFieldsClassName="file-upload-container"
-        >
-          <div className="field-container">
-            <FileUpload
-              file={formValues.resume}
-              onUploadFile={(file) => {
-                setFormValues((prev) => ({ ...prev, resume: file }));
-              }}
-            />
-            {errors.resume && <p className="form_error">{errors.resume}</p>}
-          </div>
-        </FormStep>
+      <FormStep
+        icon="info"
+        title={stepContent.fourth.title}
+        text={stepContent.fourth.text}
+        stepFieldsClassName="file-upload-container"
+      >
+        <div className="field-container">
+          <FileUpload
+            file={formValues.resume}
+            onUploadFile={(file) => {
+              setFormValues((prev) => ({ ...prev, resume: file }));
+            }}
+          />
+          {errors.resume && <p className="form_error">{errors.resume}</p>}
+        </div>
+      </FormStep>
 
-        <FormStep
-          icon="love"
-          title={stepContent.third.title}
-          stepFieldsClassName="textarea-container"
-        >
-          <div className="field-container">
-            <TextArea
-              id="detailments"
-              placeholder={textAreaText}
-              className="input-field textarea-field"
-              style={{ height: "176px", resize: "vertical" }}
-              value={formValues.detailments}
-              onChange={({ target }) =>
-                onChangeField("detailments", target.value)
-              }
-            />
-            {errors.detailments && (
-              <p className="form_error">{errors.detailments}</p>
-            )}
-          </div>
-        </FormStep>
+      <FormStep
+        icon="love"
+        title={stepContent.third.title}
+        stepFieldsClassName="textarea-container"
+      >
+        <div className="field-container">
+          <TextArea
+            id="detailments"
+            placeholder={textAreaText}
+            className="input-field textarea-field"
+            style={{ height: "176px", resize: "vertical" }}
+            value={formValues.detailments}
+            onChange={({ target }) =>
+              onChangeField("detailments", target.value)
+            }
+          />
+          {errors.detailments && (
+            <p className="form_error">{errors.detailments}</p>
+          )}
+        </div>
+      </FormStep>
 
-        <Button
-          color="default"
-          variant="solid"
-          htmlType="submit"
-          className="submit-button"
-        >
-          Submit
-        </Button>
-      </form>
-    </>
+      <Button
+        color="default"
+        variant="solid"
+        htmlType="submit"
+        className="submit-button"
+      >
+        Submit
+      </Button>
+    </form>
   );
 };
 
