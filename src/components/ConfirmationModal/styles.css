@@ -1,0 +1,36 @@
+.confirmation-modal-container {
+    width: 100% !important;
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.modal-title {
+    font-weight: 800;
+    font-size: 18px;
+    margin: 16px 0 0 0;
+}
+
+.modal-text {
+    margin-top: 12px;
+    text-align: center;
+    white-space: pre-wrap;
+    font-size: 16px;
+    font-weight: 800;
+    margin-top: 16px 0 0 0;
+}
+
+.modal-confirm-btn {
+    width: 350px;
+    margin-top: 32px;
+    padding: 20px 0px;
+    font-weight: 600;
+    border-radius: 8px;
+}
