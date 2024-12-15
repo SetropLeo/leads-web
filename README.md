@@ -62,13 +62,20 @@ Initially, I started by planning which components would be essential for the pro
 - The plan was to create components that would carry exclusive responsibilities for: presenting data, manipulating data, formatting elements, and generating specific actions.
 <br />
 
-1. I implemented `ZustandStores` for `data-storage-and-sharing` without prop drilling.
+1. I implemented `Zustand Stores` for `data-storage-and-sharing` without prop drilling.
    
 2. I implemented `interfaces` to assist me in feature development by moving data from one place to another.
    
 3. I implemented `Zod` for complete `validation` of input fields on the lead capture screen, as well as to assist with user feedback in case of incorrect entries.
    
 4. I created `utility functions` that would be used throughout the project, such as the notification utility.
+
+<br />
+
+### System Design
+![NextJs (1)](https://github.com/user-attachments/assets/3709bffa-c95e-45ca-8135-d2ebbe98c4cd)
+
+
    
 <br />
 
