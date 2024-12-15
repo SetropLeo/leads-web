@@ -1,3 +1,13 @@
+.header-container {
+    padding: 0;
+}
+
+.header-title {
+    margin: 38px 0 0 30px;
+    font-size: 30px;
+    font-weight: 700;
+}
+
 .app-header {
     background-color: #fff;
     padding: 0 24px;
@@ -8,15 +18,6 @@
     font-size: 24px;
     font-weight: bold;
     padding: 16px 0;
-}
-
-/* Content */
-.content {
-    padding: 24px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    margin-top: 24px;
 }
 
 .content .ant-table {

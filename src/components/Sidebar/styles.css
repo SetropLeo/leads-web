@@ -1,22 +1,64 @@
-.sidebar {
-    width: 250px;
-    background-color: #fff;
-    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
-    padding: 16px;
+.sidebar-container {
+  width: 250px;
+  background-color: #ffffff;
+  padding: 40px 24px 40px 24px;
+  border-right: 1px solid #d9d9d9;
 }
 
-.sidebar .logo {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 24px;
+.logo-container {
+  display: flex;
+  align-content: start;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
 }
 
-.sidebar .ant-menu {
-    width: 100%;
+.menu-list {
+  margin-top: 32px;
+  border: none !important;
 }
 
-.sidebar .ant-menu-item {
-    font-size: 16px;
-    padding: 16px;
+.menu-item {
+  background-color: unset !important;
+  padding: 0 !important;
+  color: #000000 !important;
+}
+
+.menu-item.ant-menu-item-selected {
+  font-weight: 800;
+}
+
+.menu-item:hover {
+  background-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+.ant-menu-item,
+.ant-menu-title-content {
+  display: flex;
+  align-items: center;
+  height: 32px !important;
+}
+
+.user-avatar {
+  position: absolute !important;
+  bottom: 32px;
+  width: 193px !important;
+  height: 40px !important;
+}
+
+.user-avatar .ant-menu-title-content {
+  gap: 8px;
+  height: 40px !important;
+
+  span {
+    background-color: #ececec;
+    color: #000000;
+    font-weight: 700;
+    font-size: 14px !important;
+  }
+
+  .username {
+    font-size: 14px;
+    font-weight: 700;
+  }
 }

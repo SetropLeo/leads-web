@@ -1,23 +1,37 @@
-.ant-layout-sider {
-    background-color: #f4f4f4;
+.layout-container {
+    height: 100vh;
+    display: flex;
+    background-color: #FFFFFF;
+
 }
 
 .ant-layout-header {
-    background-color: #fff;
+    background-color: #ffffff;
+    height: 80px;
 }
 
 .ant-layout-content {
     background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.layout {
-    min-height: 100vh;
+.layout-content {
+    padding: 30px;
+}
+
+.table-filters {
+    margin-bottom: 48px;
     display: flex;
+    flex-direction: row;
+    gap: 8px;
+
+
+
+    .filter-selector {
+        width: 100px;
+    }
+
+    .ant-input-affix-wrapper {
+        width: 250px;
+    }
 }
 
-.layout .main-content {
-    flex-grow: 1;
-    padding: 0 24px 24px;
-}
