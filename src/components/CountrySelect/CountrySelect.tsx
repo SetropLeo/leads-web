@@ -21,7 +21,7 @@ const CountrySelect = ({
     <Select
       options={countryOptions}
       id={id}
-      value={value}
+      value={value || undefined}
       placeholder="Country of citizenship"
       onChange={onChange}
       className={`country-selector ${className}`}

@@ -1,18 +1,15 @@
 "use client";
 
-import { CountrySelect } from "@/components";
 import React, { FormEvent, useState } from "react";
-import Image from "next/image";
-import TextArea from "antd/es/input/TextArea";
 import { Button, Checkbox, Input } from "antd";
 import z from "zod";
 
-import LoveIcon from "../../../public/icons/love-icon.png";
-import DiceIcon from "../../../public/icons//dice-icon.png";
-import InfoIcon from "../../../public/icons/info-icon.png";
+import TextArea from "antd/es/input/TextArea";
+import { CountrySelect, FileUpload, FormStep } from "@/components";
+import { initialFormData } from "../../../constants/Form";
 
 import { formSchema } from "@/lib/validation";
-import { IAssessmentForm, IFormFieldError } from "@/interfaces";
+import { IFormFieldError } from "@/interfaces";
 import "./styles.css";
 
 const AssessmentForm = () => {
@@ -23,7 +20,6 @@ const AssessmentForm = () => {
     e.preventDefault();
 
     try {
-      console.log({ formValues });
       await formSchema.parseAsync(formValues);
     } catch (error) {
       if (error instanceof z.ZodError) {
@@ -43,108 +39,110 @@ const AssessmentForm = () => {
       onSubmit={handleFormSubmit}
       name="assessment-form"
     >
-      <div className="step">
-        <Image src={InfoIcon} alt="info" width={64} height={64} />
-        <h3 className="step-title">{stepContent.first.title}</h3>
-        <p className="step-text">{stepContent.first.text}</p>
-        <div className="step-fields-container">
-          <div className="field-container">
-            <Input
-              id="firstName"
-              className="input-field"
-              placeholder="First Name"
-              value={formValues.firstName}
-              onChange={({ target }) =>
-                onChangeField("firstName", target.value)
-              }
-            />
-            {errors.firstName && (
-              <p className="form_error">{errors.firstName}</p>
-            )}
-          </div>
-          <div className="field-container">
-            <Input
-              id="lastName"
-              className="input-field"
-              placeholder="Last Name"
-              value={formValues.lastName}
-              onChange={({ target }) => onChangeField("lastName", target.value)}
-            />
-            {errors.lastName && <p className="form_error">{errors.lastName}</p>}
-          </div>
-          <div className="field-container">
-            <Input
-              id="email"
-              className="input-field"
-              placeholder="Email"
-              value={formValues.email}
-              onChange={({ target }) => onChangeField("email", target.value)}
-            />
-            {errors.email && <p className="form_error">{errors.email}</p>}
-          </div>
-          <div className="field-container">
-            <CountrySelect
-              id="country"
-              className="input-field"
-              value={formValues.country}
-              onChange={(value) => onChangeField("country", value)}
-            />
-            {errors.country && <p className="form_error">{errors.country}</p>}
-          </div>
-          <div className="field-container">
-            <Input
-              className="input-field"
-              placeholder="Linkedin / Personal Website URL"
-              value={formValues.profDataUrl}
-              onChange={({ target }) =>
-                onChangeField("profDataUrl", target.value)
-              }
-            />
-            {errors.profDataUrl && (
-              <p className="form_error">{errors.profDataUrl}</p>
-            )}
-          </div>
+      <FormStep
+        icon="info"
+        title={stepContent.first.title}
+        text={stepContent.first.text}
+      >
+        <div className="field-container">
+          <Input
+            id="firstName"
+            className="input-field"
+            placeholder="First Name"
+            value={formValues.firstName}
+            onChange={({ target }) => onChangeField("firstName", target.value)}
+          />
+          {errors.firstName && <p className="form_error">{errors.firstName}</p>}
         </div>
-      </div>
+        <div className="field-container">
+          <Input
+            id="lastName"
+            className="input-field"
+            placeholder="Last Name"
+            value={formValues.lastName}
+            onChange={({ target }) => onChangeField("lastName", target.value)}
+          />
+          {errors.lastName && <p className="form_error">{errors.lastName}</p>}
+        </div>
+        <div className="field-container">
+          <Input
+            id="email"
+            className="input-field"
+            placeholder="Email"
+            value={formValues.email}
+            onChange={({ target }) => onChangeField("email", target.value)}
+          />
+          {errors.email && <p className="form_error">{errors.email}</p>}
+        </div>
+        <div className="field-container">
+          <CountrySelect
+            id="country"
+            className="input-field"
+            value={formValues.country}
+            onChange={(value) => onChangeField("country", value)}
+          />
+          {errors.country && <p className="form_error">{errors.country}</p>}
+        </div>
+        <div className="field-container">
+          <Input
+            className="input-field"
+            placeholder="Linkedin / Personal Website URL"
+            value={formValues.profDataUrl}
+            onChange={({ target }) =>
+              onChangeField("profDataUrl", target.value)
+            }
+          />
+          {errors.profDataUrl && (
+            <p className="form_error">{errors.profDataUrl}</p>
+          )}
+        </div>
+      </FormStep>
 
-      <div className="step">
-        <Image src={DiceIcon} alt="info" width={64} height={64} />
-        <h3 className="step-title">{stepContent.second.title}</h3>
-        <div className="step-fields-container">
-          <div className="field-container">
-            <Checkbox.Group
-              className="checkbox-field"
-              options={radioSelectOptions}
-              onChange={(selectedList) => {
-                setFormValues((prev) => ({ ...prev, visa: selectedList }));
-              }}
-            />
-            {errors.visa && <p className="form_error">{errors.visa}</p>}
-          </div>
+      <FormStep icon="dice" title={stepContent.second.title}>
+        <div className="field-container">
+          <Checkbox.Group
+            className="checkbox-group"
+            options={radioSelectOptions}
+            onChange={(selectedList) => {
+              setFormValues((prev) => ({ ...prev, visa: selectedList }));
+            }}
+          />
+          {errors.visa && <p className="form_error">{errors.visa}</p>}
         </div>
-      </div>
+      </FormStep>
 
-      <div className="step">
-        <Image src={LoveIcon} alt="info" width={64} height={64} />
-        <h3 className="step-title">{stepContent.second.title}</h3>
-        <div className="step-fields-container text-area-container">
-          <div className="field-container">
-            <TextArea
-              id="detailments"
-              placeholder={textAreaText}
-              className="input-field textarea-field"
-              style={{ height: "176px", resize: "vertical" }}
-              value={formValues.detailments}
-              onChange={({ target }) =>
-                onChangeField("detailments", target.value)
-              }
-            />
-            {errors.detailments && (
-              <p className="form_error">{errors.detailments}</p>
-            )}
-          </div>
+      <FormStep
+        icon="info"
+        title={stepContent.fourth.title}
+        text={stepContent.fourth.text}
+        stepFieldsClassName="file-upload-container"
+      >
+        <div className="field-container">
+          <FileUpload />
         </div>
-      </div>
+      </FormStep>
+
+      <FormStep
+        icon="love"
+        title={stepContent.third.title}
+        stepFieldsClassName="textarea-container"
+      >
+        <div className="field-container">
+          <TextArea
+            id="detailments"
+            placeholder={textAreaText}
+            className="input-field textarea-field"
+            style={{ height: "176px", resize: "vertical" }}
+            value={formValues.detailments}
+            onChange={({ target }) =>
+              onChangeField("detailments", target.value)
+            }
+          />
+          {errors.detailments && (
+            <p className="form_error">{errors.detailments}</p>
+          )}
+        </div>
+      </FormStep>
 
       <Button
         color="default"
@@ -178,16 +176,10 @@ const stepContent = {
   third: {
     title: "How can we help you?",
   },
+  fourth: {
+    title: "Let us know about your experience",
+    text: "Please provide us with your resume so we can better understand your professional background",
+  },
 };
 
 const textAreaText = `What is your current status and when does it expire?\nWhat is your past immigration history? Are you looking for long term permanent residency or short-term employment visa or both? Are there any timeline considerations?`;
-
-const initialFormData: IAssessmentForm = {
-  firstName: "",
-  lastName: "",
-  email: "",
-  country: "",
-  visa: [],
-  profDataUrl: "",
-  detailments: "",
-};
