@@ -8,4 +8,5 @@ export const initialFormData: IAssessmentForm = {
   detailments: "",
   profDataUrl: "",
   visa: [],
+  resume: null,
 };
