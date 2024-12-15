@@ -62,7 +62,7 @@ Initially, I started by planning which components would be essential for the pro
 - The plan was to create components that would carry exclusive responsibilities for: presenting data, manipulating data, formatting elements, and generating specific actions.
 <br />
 
-1. I implemented `Zustand Stores` for `data-storage-and-sharing` without prop drilling.
+1. I implemented `Zustand Stores` for `data storage and sharing` without prop drilling.
    
 2. I implemented `interfaces` to assist me in feature development by moving data from one place to another.
    
