@@ -1,0 +1,23 @@
+.ant-layout-sider {
+    background-color: #f4f4f4;
+}
+
+.ant-layout-header {
+    background-color: #fff;
+}
+
+.ant-layout-content {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.layout {
+    min-height: 100vh;
+    display: flex;
+}
+
+.layout .main-content {
+    flex-grow: 1;
+    padding: 0 24px 24px;
+}
