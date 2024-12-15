@@ -1,4 +1,4 @@
-## Alma Technical Exercise
+## Alma Web - Lead Collector
 
 ### Technologies used
 - NextJS v14
@@ -94,7 +94,7 @@ Finally, I had planned to implement `streaming and real-time data` using `Next v
 
 <br />
 Notes: 
-- Regarding this last point, it was the one that frustrated me the most. Next v15, combined with React v19, results in an extremely powerful force that enables new ways of interacting with the web. However, numerous libraries are still not ready to work with these technologies, including the Ant Design library. I spent countless precious hours trying to solve numerous issues with reactivity, visuals, and screen hydration.
+- Regarding this last point, it was the one that frustrated me the most. Next v15, combined with React v19, results in an extremely powerful force that enables new ways of interacting with the web. However, numerous libraries are still not ready to work with these technologies, including the Ant Design library. I spent countless precious hours trying to solve numerous issues with reactivity, visuals, and screen hydration. So, after 12 hours, it was necessary to start a new project to switch to Next v14 and React v18 to avoid conflicts.
 
 - Although it is a small project with simple features, the speed required to complete it was high and demanded a lot of attention to detail. I did not finish the test, leaving some visual details on the dashboard and the feature to change the lead state incomplete.
 
