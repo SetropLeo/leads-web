@@ -25,12 +25,15 @@
     position: relative;
     z-index: 1;
     height: 100%;
+    max-width: 710px;
+    margin: 0 auto;
 }
 
 .banner-image {
     object-fit: contain;
     height: 100%;
     width: auto;
+    position: absolute;
 }
 
 .banner-title {
